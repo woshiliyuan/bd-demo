@@ -1,0 +1,320 @@
+﻿hive
+--------------
+	数据仓库,在线分析处理。
+	HiveQL,类似sql语言。
+	表,metadata->rdbms.
+	hive处理的数据是hdfs.
+	MR,聚合操作。
+
+内部表,管理表,托管表
+-----------------------
+	hive,drop ,数据也删除
+
+外部表
+-------------------------
+	hive表结构。
+
+分区表
+---------------
+	目录.
+	where 缩小查询范围。
+
+bucket表
+---------------
+	文件。
+	hash
+	clustered by ''
+
+
+join
+-------------
+	
+
+union
+-------------
+	select id
+
+
+hive 
+-------------------
+	select id,name from customers union select id,orderno from orders ;
+	$>hive							//hive --service cli 
+	$>hive --servic hiveserver2		//启动hiveserver2，10000 [thriftServer]
+	$>hive --service beeline		//beeline	
+	
+
+hive使用jdbc协议实现远程访问
+-----------------------------
+	
+hive
+------------
+	$hive>CREATE TABLE t3(id int,name string,age int) PARTITIONED BY (Year INT, Month INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' ;
+
+export
+---------
+	$hive>EXPORT TABLE customers TO '/user/centos/tmp.txt';		//导出表结构+数据。
+
+	//order全排序
+	$hive>select * from orders order by id asc ;
+
+	//sort,map端排序,本地有序。
+	$hive>select * from orders sort by id asc ;
+
+	//DISTRIBUTE BY类似于mysql的group by,进行分区操作。
+	//select cid , ... from orders distribute by cid sort by name ;			//注意顺序.
+	$hive>select id,orderno,cid from orders distribute by cid sort by cid desc ;
+
+	//cluster by ===>  distribute by cid sort by cid
+
+函数
+----------------
+	mysql>select concat('tom',1000) ;
+	$hive>select current_database(),current_user() ;
+	$hive>tab								//查看帮助
+
+	
+
+设置作业参数
+---------------
+	 $hive>set hive.exec.reducers.bytes.per.reducer=xxx			//设置reducetask的字节数。
+	 $hive>set hive.exec.reducers.max=0							//设置reduce task的最大任务数
+	 $hive>set mapreduce.job.reduces=0							//设置reducetask个数。
+
+
+动态分区
+---------------
+	动态分区模式:strict-严格模式，插入时至少指定一个静态分区，nonstrict-非严格模式-可以不指定静态分区。
+	set hive.exec.dynamic.partition.mode=nonstrict			//设置非严格模式
+	$hive>INSERT OVERWRITE TABLE employees PARTITION (country, state) SELECT ..., se.cnty, se.st FROM staged_employees se WHERE se.cnty = 'US';
+
+159
+
+hive事务处理在>0.13.0之后支持行级事务。
+---------------------------------------
+	1.所有事务自动提交。
+	2.只支持orc格式。
+	3.使用bucket表。
+	4.配置hive参数，使其支持事务。
+$hive>SET hive.support.concurrency = true;				
+$hive>SET hive.enforce.bucketing = true;					
+$hive>SET hive.exec.dynamic.partition.mode = nonstrict;	
+$hive>SET hive.txn.manager = org.apache.hadoop.hive.ql.lockmgr.DbTxnManager;
+$hive>SET hive.compactor.initiator.on = true;
+$hive>SET hive.compactor.worker.threads = 1;
+
+	5.使用事务性操作
+		$>CREATE TABLE tx(id int,name string,age int) CLUSTERED BY (id) INTO 3 BUCKETS ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' stored as orc TBLPROPERTIES ('transactional'='true');
+
+
+聚合处理
+---------------
+	$hive>select cid,count(*) c ,max(price) from orders group by cid having c > 1 ; 
+	
+wordcount
+----------------
+	$hive>select t.word,count(*) c from ((select explode(split(line, ' ')) as word from doc) as t) group by t.word order by c desc limit 2 ;
+
+创建新表:stats(word string,c int) ;
+	将查询结果插入到指定表中。
+
+
+view:视图,虚表
+-----------
+	//创建视图
+	$hive>create view v1 as select a.id aid,a.name ,b.id bid , b.order from customers a left outer join default.tt b on a.id = b.cid ;
+
+	//查看视图
+	$hive>show tables ;
+	$hive>select * from v1 ;
+
+Map端连接
+-------------------
+	$hive>set hive.auto.convert.join=true			//设置自动转换连接,默认开启了。
+	//使用mapjoin连接暗示实现mapjoin
+	$hive>select /*+ mapjoin(customers) */ a.*,b.* from customers a left outer join orders b on a.id = b.cid ;
+
+调优
+--------------------
+	1.explain
+		使用explain查看查询计划
+		hive>explain [extended] select count(*) from customers ;
+		hive>explain select t.name , count(*) from (select a.name ,b.id,b.orderno from customers a ,orders b where a.id = b.cid) t group by t.name ;
+
+		//设置limit优化测，避免全部查询.
+		hive>set hive.limit.optimize.enable=true
+
+		//本地模式
+		$hive>set mapred.job.tracker=local;			//
+		$hive>set hive.exec.mode.local.auto=true	//自动本地模式,测试
+
+
+		//并行执行,同时执行不存在依赖关系的阶段。??
+		$hive>set hive.exec.parallel=true			//
+
+		//严格模式,
+		$hive>set hive.mapred.mode=strict			//1.分区表必须指定分区进行查询
+													//2.order by时必须使用limit子句。
+													//3.不允许笛卡尔积.
+
+
+		//设置MR的数量
+		hive> set hive.exec.reducers.bytes.per.reducer=750000000;	//设置reduce处理的字节数。
+
+		//JVM重用
+		$hive>set mapreduce.job.jvm.numtasks=1		//-1没有限制，使用大量小文件。
+
+
+		//UDF
+		//User define function,用户自定义函数
+		//current_database(),current_user();
+
+		//显式所有函数
+		$hive>show functions;
+		$hive>select array(1,2,3) ;
+
+		//显式指定函数帮助
+		$hive>desc function current_database();
+
+		//表生成函数,多行函数。
+		$hive>explode(str,exp);			//按照exp切割str.
+
+自定义函数
+------------------
+	1.创建类，继承UDF
+		package com.it18zhang.hivedemo.udf;
+
+		import org.apache.hadoop.hive.ql.exec.Description;
+		import org.apache.hadoop.hive.ql.exec.UDF;
+
+		/**
+		 * 自定义hive函数
+		 */
+		@Description(name = "myadd",
+				value = "myadd(int a , int b) ==> return a + b ",
+				extended = "Example:\n"
+						+ " myadd(1,1) ==> 2 \n"
+						+ " myadd(1,2,3) ==> 6;")
+		public class AddUDF extends UDF {
+
+			public int evaluate(int a ,int b) {
+				return a + b ;
+			}
+
+			public int evaluate(int a ,int b , int c) {
+				return a + b + c;
+			}
+		}
+	2.打成jar包。
+		cmd>cd {classes所在目录}
+		cmd>jar cvf HiveDemo.jar -C x/x/x/x/classes/ .
+	3.添加jar包到hive的类路径
+		//添加jar到类路径
+		$>cp /mnt/hgfs/downloads/bigdata/data/HiveDemo.jar /soft/hive/lib
+	
+	3.重进入hive
+		$>....
+
+	4.创建临时函数
+		//
+		CREATE TEMPORARY FUNCTION myadd AS 'com.it18zhang.hivedemo.udf.AddUDF';
+
+	5.在查询中使用自定义函数
+		$hive>select myadd(1,2)  ;
+	
+	6.定义日期函数
+		1)定义类
+		public class ToCharUDF extends UDF {
+			/**
+			 * 取出服务器的当前系统时间 2017/3/21 16:53:55
+			 */
+			public String evaluate() {
+				Date date = new Date();
+				SimpleDateFormat sdf = new SimpleDateFormat();
+				sdf.applyPattern("yyyy/MM/dd hh:mm:ss");
+				return sdf.format(date) ;
+			}
+			public String evaluate(Date date) {
+				SimpleDateFormat sdf = new SimpleDateFormat();
+				sdf.applyPattern("yyyy/MM/dd hh:mm:ss");
+				return sdf.format(date) ;
+			}
+
+			public String evaluate(Date date,String frt) {
+				SimpleDateFormat sdf = new SimpleDateFormat();
+				sdf.applyPattern(frt);
+				return sdf.format(date) ;
+			}
+		}
+
+		2)导出jar包，通过命令添加到hive的类路径(不需要重进hive)。
+			$hive>add jar /mnt/hgfs/downloads/bigdata/data/HiveDemo-1.0-SNAPSHOT.jar
+		
+		3)注册函数
+			$hive>CREATE TEMPORARY FUNCTION to_char AS 'com.it18zhang.hivedemo.udf.ToCharUDF';
+			$hive>CREATE TEMPORARY FUNCTION to_date AS 'com.it18zhang.hivedemo.udf.ToDateUDF';
+
+
+
+定义Nvl函数
+------------------
+	package com.it18zhang.hivedemo.udf;
+
+	import org.apache.hadoop.hive.ql.exec.UDFArgumentException;
+	import org.apache.hadoop.hive.ql.exec.UDFArgumentLengthException;
+	import org.apache.hadoop.hive.ql.exec.UDFArgumentTypeException;
+	import org.apache.hadoop.hive.ql.metadata.HiveException;
+	import org.apache.hadoop.hive.ql.udf.generic.GenericUDF;
+	import org.apache.hadoop.hive.ql.udf.generic.GenericUDFUtils;
+	import org.apache.hadoop.hive.serde2.objectinspector.ObjectInspector;
+
+	/**
+	 * 自定义null值处理函数
+	 */
+	public class Nvl extends GenericUDF {
+		private GenericUDFUtils.ReturnObjectInspectorResolver returnOIResolver;
+		private ObjectInspector[] argumentOIs;
+
+		public ObjectInspector initialize(ObjectInspector[] arguments)
+				throws UDFArgumentException {
+			argumentOIs = arguments;
+			//检查参数个数
+			if (arguments.length != 2) {
+				throw new UDFArgumentLengthException(
+						"The operator 'NVL' accepts 2 arguments.");
+			}
+			returnOIResolver = new GenericUDFUtils.ReturnObjectInspectorResolver(true);
+			//检查参数类型
+			if (!(returnOIResolver.update(arguments[0]) && returnOIResolver
+					.update(arguments[1]))) {
+				throw new UDFArgumentTypeException(2,
+						"The 1st and 2nd args of function NLV should have the same type, "
+								+ "but they are different: \"" + arguments[0].getTypeName()
+								+ "\" and \"" + arguments[1].getTypeName() + "\"");
+			}
+			return returnOIResolver.get();
+		}
+
+		public Object evaluate(DeferredObject[] arguments) throws HiveException {
+			Object retVal = returnOIResolver.convertIfNecessary(arguments[0].get(), argumentOIs[0]);
+			if (retVal == null) {
+				retVal = returnOIResolver.convertIfNecessary(arguments[1].get(),
+						argumentOIs[1]);
+			}
+			return retVal;
+		}
+
+		public String getDisplayString(String[] children) {
+			StringBuilder sb = new StringBuilder();
+			sb.append("if ");
+			sb.append(children[0]);
+			sb.append(" is null ");
+			sb.append("returns");
+			sb.append(children[1]);
+			return sb.toString();
+		}
+	}
+
+	2)添加jar到类路径
+		...
+	3)注册函数
+		$hive>CREATE TEMPORARY FUNCTION nvl AS 'org.apache.hadoop.hive.ql.udf.generic.GenericUDFNvl';

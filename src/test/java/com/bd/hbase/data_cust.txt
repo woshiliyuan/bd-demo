@@ -1,0 +1,76 @@
+hbase(main):001:0> describe 'cust'
+Table cust is ENABLED                                                                                                                                                                               
+cust                                                                                                                                                                                                
+COLUMN FAMILIES DESCRIPTION                                                                                                                                                                         
+{NAME => 'addr', BLOOMFILTER => 'ROWCOL', VERSIONS => '1', IN_MEMORY => 'false', KEEP_DELETED_CELLS => 'FALSE', DATA_BLOCK_ENCODING => 'DIFF', TTL => 'FOREVER', COMPRESSION => 'NONE', MIN_VERSIONS
+ => '0', BLOCKCACHE => 'true', BLOCKSIZE => '65536', REPLICATION_SCOPE => '0'}                                                                                                                      
+{NAME => 'info', BLOOMFILTER => 'ROWCOL', VERSIONS => '1', IN_MEMORY => 'false', KEEP_DELETED_CELLS => 'FALSE', DATA_BLOCK_ENCODING => 'DIFF', TTL => 'FOREVER', COMPRESSION => 'NONE', MIN_VERSIONS
+ => '0', BLOCKCACHE => 'true', BLOCKSIZE => '65536', REPLICATION_SCOPE => '0'}                                                                                                                      
+2 row(s) in 0.6750 seconds
+
+hbase(main):002:0> scan 'cust'
+ROW                                                COLUMN+CELL                                                                                                                                      
+ liyuan                                            column=addr:area, timestamp=1527644514584, value=pudong                                                                                          
+ liyuan                                            column=addr:city, timestamp=1527644514568, value=shanghai                                                                                        
+ liyuan                                            column=info:firstname, timestamp=1527644514495, value=li                                                                                         
+ liyuan                                            column=info:secondname, timestamp=1527644514551, value=yuan                                                                                      
+ liyuan1                                           column=addr:area, timestamp=1527645089805, value=pudong                                                                                          
+ liyuan1                                           column=addr:city, timestamp=1527645089792, value=shanghai                                                                                        
+ liyuan1                                           column=info:firstname, timestamp=1527645089753, value=li                                                                                         
+ liyuan1                                           column=info:secondname, timestamp=1527645089777, value=yuan                                                                                      
+ liyuan2                                           column=addr:area, timestamp=1527645089991, value=pudong                                                                                          
+ liyuan2                                           column=addr:city, timestamp=1527645089977, value=shanghai                                                                                        
+ liyuan2                                           column=info:firstname, timestamp=1527645089950, value=li                                                                                         
+ liyuan2                                           column=info:secondname, timestamp=1527645089964, value=yuan                                                                                      
+ lkq                                               column=addr:area, timestamp=1527644514744, value=tiananmen                                                                                       
+ lkq                                               column=addr:city, timestamp=1527644514731, value=beijing                                                                                         
+ lkq                                               column=info:age, timestamp=1527644514715, value=18                                                                                               
+ lkq                                               column=info:firstname, timestamp=1527644514679, value=l                                                                                          
+ lkq                                               column=info:sex, timestamp=1527644514693, value=m                                                                                                
+ lkq1                                              column=addr:area, timestamp=1527645089928, value=tiananmen                                                                                       
+ lkq1                                              column=addr:city, timestamp=1527645089914, value=beijing                                                                                         
+ lkq1                                              column=info:age, timestamp=1527645089901, value=18                                                                                               
+ lkq1                                              column=info:firstname, timestamp=1527645089873, value=l                                                                                          
+ lkq1                                              column=info:sex, timestamp=1527645089887, value=m                                                                                                
+ lkq2                                              column=addr:area, timestamp=1527645090122, value=tiananmen                                                                                       
+ lkq2                                              column=addr:city, timestamp=1527645090109, value=beijing                                                                                         
+ lkq2                                              column=info:age, timestamp=1527645090096, value=18                                                                                               
+ lkq2                                              column=info:firstname, timestamp=1527645090069, value=l                                                                                          
+ lkq2                                              column=info:sex, timestamp=1527645090082, value=m                                                                                                
+ xjp                                               column=addr:area, timestamp=1527644514662, value=tiananmen                                                                                       
+ xjp                                               column=addr:city, timestamp=1527644514638, value=beijing                                                                                         
+ xjp                                               column=info:firstname, timestamp=1527644514598, value=x                                                                                          
+ xjp                                               column=info:secondname, timestamp=1527644514624, value=jp                                                                                        
+ xjp1                                              column=addr:area, timestamp=1527645089859, value=tiananmen                                                                                       
+ xjp1                                              column=addr:city, timestamp=1527645089846, value=beijing                                                                                         
+ xjp1                                              column=info:firstname, timestamp=1527645089819, value=x                                                                                          
+ xjp1                                              column=info:secondname, timestamp=1527645089832, value=jp                                                                                        
+ xjp2                                              column=addr:area, timestamp=1527645090054, value=tiananmen                                                                                       
+ xjp2                                              column=addr:city, timestamp=1527645090032, value=beijing                                                                                         
+ xjp2                                              column=info:firstname, timestamp=1527645090004, value=x                                                                                          
+ xjp2                                              column=info:secondname, timestamp=1527645090018, value=jp                                                                                        
+9 row(s) in 0.2560 seconds
+
+hbase(main):003:0>
+
+
+
+
+
+
+
+[hadoop@auth-sit bigdata]$ hadoop fs -ls /hbase/data/default/cust
+Found 3 items
+drwxr-xr-x   - hadoop supergroup          0 2018-05-30 09:35 /hbase/data/default/cust/.tabledesc
+drwxr-xr-x   - hadoop supergroup          0 2018-05-30 09:35 /hbase/data/default/cust/.tmp
+drwxr-xr-x   - hadoop supergroup          0 2018-05-30 10:46 /hbase/data/default/cust/d71d3fd19a816eec5f08f521695c7190
+[hadoop@auth-sit bigdata]$ hadoop fs -ls /hbase/data/default/cust/d71d3fd19a816eec5f08f521695c7190
+Found 5 items
+-rw-r--r--   3 hadoop supergroup         39 2018-05-30 09:35 /hbase/data/default/cust/d71d3fd19a816eec5f08f521695c7190/.regioninfo
+drwxr-xr-x   - hadoop supergroup          0 2018-05-30 10:46 /hbase/data/default/cust/d71d3fd19a816eec5f08f521695c7190/.tmp
+drwxr-xr-x   - hadoop supergroup          0 2018-05-30 10:46 /hbase/data/default/cust/d71d3fd19a816eec5f08f521695c7190/addr
+drwxr-xr-x   - hadoop supergroup          0 2018-05-30 10:46 /hbase/data/default/cust/d71d3fd19a816eec5f08f521695c7190/info
+drwxr-xr-x   - hadoop supergroup          0 2018-05-30 09:35 /hbase/data/default/cust/d71d3fd19a816eec5f08f521695c7190/recovered.edits
+[hadoop@auth-sit bigdata]$ hadoop fs -ls /hbase/data/default/cust/d71d3fd19a816eec5f08f521695c7190/addr
+Found 1 items
+-rw-r--r--   3 hadoop supergroup       1457 2018-05-30 10:46 /hbase/data/default/cust/d71d3fd19a816eec5f08f521695c7190/addr/5a120812d52d49a39ff391e5cd781e67

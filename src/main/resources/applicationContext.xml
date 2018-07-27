@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+                        http://www.springframework.org/schema/context
+                        http://www.springframework.org/schema/context/spring-context-3.2.xsd
+                        http://www.springframework.org/schema/mvc
+                        http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+                        http://www.springframework.org/schema/task
+                        http://www.springframework.org/schema/task/spring-task-3.2.xsd">
+	<!-- Activates scanning of @Autowired -->
+	<context:annotation-config />
+	<context:property-placeholder location="classpath:application.properties"
+		ignore-unresolvable="true" />
+	<context:component-scan base-package="com.bd.hadoop" />
+	<context:component-scan base-package="com.bd.hbase" />
+	<context:component-scan base-package="com.bd.hive" />
+	<!--<context:component-scan base-package="com.bd.kafka.spring" /> <context:component-scan 
+		base-package="com.bd.kafka.client" /> -->
+	<!-- hbase -->
+	<bean id="hBaseUtils" class="com.bd.hbase.HBaseUtils">
+		<property name="hbaseZookeeperQuorum" value="${hbase.zookeeper.quorum}" />
+		<property name="zookeeperZnodeParent" value="${zookeeper.znode.parent}" />
+	</bean>
+	<!-- hive -->
+	<bean id="hiveUtils" class="com.bd.hive.HiveUtils">
+		<property name="driver" value="${hive.conn.driver}" />
+		<property name="url" value="${hive.conn.url}" />
+		<property name="user" value="${hive.conn.user}" />
+		<property name="passwd" value="${hive.conn.passwd}" />
+	</bean>
+	<!-- pool executor -->
+	<bean id="taskExecutor"
+		class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+		<property name="corePoolSize" value="5" />
+		<property name="keepAliveSeconds" value="200" />
+		<property name="maxPoolSize" value="20" />
+		<property name="queueCapacity" value="40" />
+		<property name="rejectedExecutionHandler">
+			<bean class="java.util.concurrent.ThreadPoolExecutor$CallerRunsPolicy" />
+		</property>
+	</bean>
+	<bean id="multiThreadService" class="com.bd.common.thread.MultiThreadServiceImpl">
+		<property name="maxPoolSize" value="20" />
+		<property name="minPoolSize" value="5" />
+		<property name="maxQueueSize" value="40" />
+	</bean>
+</beans>

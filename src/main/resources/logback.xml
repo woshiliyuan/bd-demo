@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+	<property resource="logback.properties" />
+	<!-- 访问记录 - Controller -->
+	<appender name="ActionAccessAppender"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>ERROR</level>
+			<onMatch>DENY</onMatch>
+			<onMismatch>ACCEPT</onMismatch>
+		</filter>
+		<file>${log.path}/action-access.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${log.path}/action-access.%d{yyyy-MM-dd}.%i.log
+			</fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy
+				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<MaxFileSize>500MB</MaxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>%date|%thread|%X{invokeNo}|%msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<!-- 堆栈跟踪日志 -->
+	<appender name="MainAppender"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>ERROR</level>
+			<onMatch>DENY</onMatch>
+			<onMismatch>ACCEPT</onMismatch>
+		</filter>
+		<file>${log.path}/main.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${log.path}/main.%d{yyyy-MM-dd}.%i.log
+			</fileNamePattern>
+			<!-- <maxHistory>10</maxHistory> -->
+			<timeBasedFileNamingAndTriggeringPolicy
+				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<MaxFileSize>500MB</MaxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>%date|%thread|%X{invokeNo}|%level|%logger{0}|%msg%n
+			</pattern>
+		</encoder>
+	</appender>
+
+	<!-- 堆栈错误跟踪日志 -->
+	<appender name="MainErrorAppender"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>ERROR</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+		<file>${log.path}/error.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${log.path}/error.%d{yyyy-MM-dd}.%i.log
+			</fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy
+				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<MaxFileSize>10MB</MaxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>%date|%thread|%X{invokeNo}|%logger{0}|%msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<!-- 其他日志 -->
+	<appender name="OtherAppender"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${log.path}/other.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${log.path}/other.%d{yyyy-MM-dd}.%i.log
+			</fileNamePattern>
+			<!-- <maxHistory>10</maxHistory> -->
+			<timeBasedFileNamingAndTriggeringPolicy
+				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<MaxFileSize>500MB</MaxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>%date|%thread|%X{invokeNo}|%level|%logger{50}|%msg%n
+			</pattern>
+		</encoder>
+	</appender>
+
+	<!-- 输出到控制台 -->
+	<appender name="ConsoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>%date|%thread|%X{invokeNo}|%-5level %logger{80} - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+
+	<!-- 堆栈跟踪日志打印 -->
+	<logger name="com.bd" level="${main.log.level}" additivity="false">
+		<appender-ref ref="MainAppender" />
+		<appender-ref ref="MainErrorAppender" />
+	</logger>
+
+	<!-- Action日志 -->
+	<logger name="ActionAccessLogger" level="${action.log.level}"
+		additivity="false">
+		<appender-ref ref="ActionAccessAppender" />
+		<appender-ref ref="MainErrorAppender" />
+	</logger>
+
+	<!-- 根LOGGER -->
+	<root>
+		<level value="${other.log.level}" />
+		<appender-ref ref="OtherAppender" />
+	</root>
+</configuration>

@@ -1,0 +1,203 @@
+2018-07-13 09:21:07,511|main||INFO|PressureTest|test1_2 insert start
+2018-07-13 12:20:05,992|main||INFO|PressureTest|test1_2 insert end,start:0,end:1000000,cost time(ms):10738481
+2018-07-13 13:13:52,881|main||INFO|PressureTest|test1_2 insert start
+2018-07-13 16:12:52,375|main||INFO|PressureTest|test1_2 insert end,start:1000000,end:2000000,cost time(ms):10739494
+2018-07-13 17:49:32,964|main||INFO|PressureTest|test1_2 insert start
+2018-07-13 17:49:32,969|main||INFO|PressureTest|test1_2 insert start sub,i:[2000000,3000000),cost time(ms):4
+2018-07-15 15:08:30,878|main||INFO|PressureTest|test1_2 insert start sub,i:[3000000,4000000),cost time(ms):163137908
+2018-07-15 18:00:19,540|main||INFO|PressureTest|test1_2 insert start sub,i:[4000000,5000000),cost time(ms):10308661
+2018-07-16 09:06:33,461|main||INFO|PressureTest|test1_2 insert start
+2018-07-16 11:26:52,378|main||INFO|PressureTest|test1_2 insert start sub,i:[5000000,6000000),cost time(ms):8418916
+2018-07-16 14:20:41,703|main||INFO|PressureTest|test1_2 insert start sub,i:[6000000,7000000),cost time(ms):10429319
+2018-07-16 17:20:45,220|main||INFO|PressureTest|test1_2 insert start sub,i:[7000000,8000000),cost time(ms):10803517
+2018-07-17 09:20:47,569|main||INFO|PressureTest|test1_2 insert start
+2018-07-17 10:14:38,061|main||INFO|PressureTest|test1_2 insert start sub,i:[8000000,9000000),cost time(ms):3230491
+2018-07-17 13:18:13,606|main||INFO|PressureTest|test1_2 insert start sub,i:[9000000,10000000),cost time(ms):11015544
+2018-07-17 16:25:08,601|main||INFO|PressureTest|test1_2 insert start sub,i:[10000000,11000000),cost time(ms):11214995
+2018-07-17 18:44:29,934|main||INFO|PressureTest|test1_2 insert start
+2018-07-17 19:53:41,291|main||INFO|PressureTest|test1_2 insert start sub,i:[11000000,12000000),cost time(ms):4151356
+2018-07-17 22:45:57,229|main||INFO|PressureTest|test1_2 insert start sub,i:[12000000,13000000),cost time(ms):10335937
+2018-07-18 01:38:10,513|main||INFO|PressureTest|test1_2 insert start sub,i:[13000000,14000000),cost time(ms):10333280
+2018-07-18 04:30:23,886|main||INFO|PressureTest|test1_2 insert start sub,i:[14000000,15000000),cost time(ms):10333364
+2018-07-18 09:09:46,199|main||INFO|PressureTest|test1_2 insert start
+2018-07-18 11:12:26,984|main||INFO|PressureTest|test1_2 insert start sub,i:[15000000,16000000),cost time(ms):7360784
+2018-07-18 14:06:05,765|main||INFO|PressureTest|test1_2 insert start sub,i:[16000000,17000000),cost time(ms):10418775
+2018-07-18 17:06:37,157|main||INFO|PressureTest|test1_2 insert start sub,i:[17000000,18000000),cost time(ms):10831392
+2018-07-18 20:11:41,144|main||INFO|PressureTest|test1_2 insert start sub,i:[18000000,19000000),cost time(ms):11103986
+2018-07-18 23:04:06,488|main||INFO|PressureTest|test1_2 insert start sub,i:[19000000,20000000),cost time(ms):10345340
+2018-07-19 01:56:30,710|main||INFO|PressureTest|test1_2 insert end,start:14300000,end:20000000,cost time(ms):60404510
+2018-07-19 16:09:45,329|main||INFO|PressureTest|test1_3 sub1 insert start
+2018-07-19 16:09:45,334|main||INFO|PressureTest|test1_3 sub1 insert start,i:[0,1000000),cost time(ms):4
+2018-07-19 16:32:07,223|main||INFO|PressureTest|test1_3 sub1 insert start,i:[1000000,2000000),cost time(ms):1341885
+2018-07-19 16:55:15,849|main||INFO|PressureTest|test1_3 sub1 insert end,start:0,end:2000000,cost time(ms):2730519
+2018-07-19 16:55:15,849|main||INFO|PressureTest|test1_3 sub2 insert start
+2018-07-19 19:52:11,133|main||INFO|PressureTest|test1_3 sub2 insert end,start:2000000,end:3000000,cost time(ms):10615284
+2018-07-20 09:56:40,179|main||INFO|PressureTest|test1_3 sub3 insert start
+2018-07-20 10:36:16,033|main||INFO|PressureTest|test1_3 sub3 insert end,start:3000000,end:4000000,cost time(ms):2375853
+2018-07-20 12:34:45,117|main||INFO|PressureTest|test2_1 query1/query2/query3/query4,get随机访问性能
+2018-07-20 12:34:45,447|main||INFO|PressureTest|test2_1 query1,rowkey:ly0005271045,count:1,cost time(ms):326
+2018-07-20 12:34:45,514|main||INFO|PressureTest|test2_1 query1,rowkey:ly0017822447,count:1,cost time(ms):66
+2018-07-20 12:34:45,565|main||INFO|PressureTest|test2_1 query1,rowkey:ly0012767266,count:1,cost time(ms):51
+2018-07-20 12:34:45,609|main||INFO|PressureTest|test2_1 query1,rowkey:ly0011756168,count:1,cost time(ms):44
+2018-07-20 12:34:45,639|main||INFO|PressureTest|test2_1 query1,rowkey:ly0005149640,count:1,cost time(ms):29
+2018-07-20 12:34:45,680|main||INFO|PressureTest|test2_1 query1,rowkey:ly0008111799,count:1,cost time(ms):41
+2018-07-20 12:34:45,748|main||INFO|PressureTest|test2_1 query1,rowkey:ly0002426484,count:1,cost time(ms):68
+2018-07-20 12:34:45,799|main||INFO|PressureTest|test2_1 query1,rowkey:ly0000832750,count:1,cost time(ms):51
+2018-07-20 12:34:45,841|main||INFO|PressureTest|test2_1 query1,rowkey:ly0014509820,count:1,cost time(ms):42
+2018-07-20 12:34:45,864|main||INFO|PressureTest|test2_1 query1,rowkey:ly0026197203,count:0,cost time(ms):23
+2018-07-20 12:34:45,886|main||INFO|PressureTest|test2_1 query2,rowkey:ly0002147323,count:1,cost time(ms):22
+2018-07-20 12:34:45,997|main||INFO|PressureTest|test2_1 query2,rowkey:ly0008091281,count:1,cost time(ms):111
+2018-07-20 12:34:46,046|main||INFO|PressureTest|test2_1 query2,rowkey:ly0004359007,count:1,cost time(ms):49
+2018-07-20 12:34:46,056|main||INFO|PressureTest|test2_1 query2,rowkey:ly0021186223,count:0,cost time(ms):10
+2018-07-20 12:34:46,098|main||INFO|PressureTest|test2_1 query2,rowkey:ly0013692477,count:1,cost time(ms):42
+2018-07-20 12:34:46,128|main||INFO|PressureTest|test2_1 query2,rowkey:ly0005010786,count:1,cost time(ms):30
+2018-07-20 12:34:46,171|main||INFO|PressureTest|test2_1 query2,rowkey:ly0006452140,count:1,cost time(ms):43
+2018-07-20 12:34:46,208|main||INFO|PressureTest|test2_1 query2,rowkey:ly0006825072,count:1,cost time(ms):37
+2018-07-20 12:34:46,249|main||INFO|PressureTest|test2_1 query2,rowkey:ly0001578036,count:1,cost time(ms):41
+2018-07-20 12:34:46,275|main||INFO|PressureTest|test2_1 query2,rowkey:ly0000620104,count:1,cost time(ms):26
+2018-07-20 12:34:46,309|main||INFO|PressureTest|test2_1 query3,rowkey:ly0001068149,count:1,cost time(ms):34
+2018-07-20 12:34:46,330|main||INFO|PressureTest|test2_1 query3,rowkey:ly0001659993,count:1,cost time(ms):21
+2018-07-20 12:34:46,356|main||INFO|PressureTest|test2_1 query3,rowkey:ly0005178564,count:1,cost time(ms):26
+2018-07-20 12:34:46,367|main||INFO|PressureTest|test2_1 query3,rowkey:ly0024703115,count:0,cost time(ms):11
+2018-07-20 12:34:46,378|main||INFO|PressureTest|test2_1 query3,rowkey:ly0022098688,count:0,cost time(ms):10
+2018-07-20 12:34:46,390|main||INFO|PressureTest|test2_1 query3,rowkey:ly0028081395,count:0,cost time(ms):11
+2018-07-20 12:34:46,402|main||INFO|PressureTest|test2_1 query3,rowkey:ly0029657718,count:0,cost time(ms):12
+2018-07-20 12:34:46,419|main||INFO|PressureTest|test2_1 query3,rowkey:ly0004023560,count:1,cost time(ms):17
+2018-07-20 12:34:46,442|main||INFO|PressureTest|test2_1 query3,rowkey:ly0012672897,count:1,cost time(ms):23
+2018-07-20 12:34:46,453|main||INFO|PressureTest|test2_1 query3,rowkey:ly0024175042,count:0,cost time(ms):11
+2018-07-20 12:34:46,472|main||INFO|PressureTest|test2_1 query4,rowkey:ly0019497557,count:1,cost time(ms):19
+2018-07-20 12:34:46,502|main||INFO|PressureTest|test2_1 query4,rowkey:ly0009878492,count:1,cost time(ms):30
+2018-07-20 12:34:46,513|main||INFO|PressureTest|test2_1 query4,rowkey:ly0028596305,count:0,cost time(ms):10
+2018-07-20 12:34:46,532|main||INFO|PressureTest|test2_1 query4,rowkey:ly0018507203,count:1,cost time(ms):19
+2018-07-20 12:34:46,563|main||INFO|PressureTest|test2_1 query4,rowkey:ly0005630611,count:1,cost time(ms):31
+2018-07-20 12:34:46,578|main||INFO|PressureTest|test2_1 query4,rowkey:ly0004827317,count:1,cost time(ms):15
+2018-07-20 12:34:46,588|main||INFO|PressureTest|test2_1 query4,rowkey:ly0020265075,count:0,cost time(ms):10
+2018-07-20 12:34:46,598|main||INFO|PressureTest|test2_1 query4,rowkey:ly0022298927,count:0,cost time(ms):10
+2018-07-20 12:34:46,632|main||INFO|PressureTest|test2_1 query4,rowkey:ly0003432902,count:1,cost time(ms):34
+2018-07-20 12:34:46,642|main||INFO|PressureTest|test2_1 query4,rowkey:ly0028770126,count:0,cost time(ms):10
+2018-07-20 12:34:46,642|main||INFO|PressureTest|test2_1 query5,get随机访问性能统计
+2018-07-20 12:36:30,206|main||INFO|PressureTest|test2_1 query5,cost1 time(ms):38907,cost2 time(ms):27521,cost3 time(ms):19662,cost4 time(ms):17474
+2018-07-20 12:38:15,401|main||INFO|PressureTest|test2_1 query5,cost1 time(ms):38911,cost2 time(ms):27891,cost3 time(ms):20091,cost4 time(ms):18302
+2018-07-20 12:40:00,172|main||INFO|PressureTest|test2_1 query5,cost1 time(ms):39206,cost2 time(ms):27451,cost3 time(ms):19765,cost4 time(ms):18349
+2018-07-20 12:41:44,564|main||INFO|PressureTest|test2_1 query5,cost1 time(ms):38343,cost2 time(ms):28478,cost3 time(ms):19784,cost4 time(ms):17786
+2018-07-20 12:43:29,342|main||INFO|PressureTest|test2_1 query5,cost1 time(ms):39046,cost2 time(ms):28017,cost3 time(ms):20038,cost4 time(ms):17677
+2018-07-20 12:45:13,466|main||INFO|PressureTest|test2_1 query5,cost1 time(ms):38238,cost2 time(ms):28059,cost3 time(ms):20408,cost4 time(ms):17419
+2018-07-20 12:46:58,546|main||INFO|PressureTest|test2_1 query5,cost1 time(ms):39205,cost2 time(ms):27893,cost3 time(ms):20116,cost4 time(ms):17866
+2018-07-20 12:48:42,674|main||INFO|PressureTest|test2_1 query5,cost1 time(ms):38543,cost2 time(ms):27900,cost3 time(ms):20065,cost4 time(ms):17620
+2018-07-20 12:50:27,175|main||INFO|PressureTest|test2_1 query5,cost1 time(ms):38414,cost2 time(ms):28253,cost3 time(ms):20070,cost4 time(ms):17764
+2018-07-20 12:52:12,140|main||INFO|PressureTest|test2_1 query5,cost1 time(ms):38814,cost2 time(ms):28744,cost3 time(ms):19639,cost4 time(ms):17768
+2018-07-20 12:52:12,141|main||INFO|PressureTest|test2_1 query6,get查询热点数据对性能的影响
+2018-07-20 12:52:12,185|main||INFO|PressureTest|test2_1 query6 sub1,rowkey:ly0007910703,count:1,cost time(ms):44
+2018-07-20 12:52:12,205|main||INFO|PressureTest|test2_1 query6 sub1,rowkey:ly0007910703,count:1,cost time(ms):19
+2018-07-20 12:52:12,224|main||INFO|PressureTest|test2_1 query6 sub1,rowkey:ly0007910703,count:1,cost time(ms):19
+2018-07-20 12:52:12,244|main||INFO|PressureTest|test2_1 query6 sub1,rowkey:ly0007910703,count:1,cost time(ms):20
+2018-07-20 12:52:22,264|main||INFO|PressureTest|test2_1 query6 sub2,rowkey:ly0007910703,count:1,cost time(ms):20
+2018-07-20 12:52:32,283|main||INFO|PressureTest|test2_1 query6 sub2,rowkey:ly0007910703,count:1,cost time(ms):18
+2018-07-20 12:52:42,304|main||INFO|PressureTest|test2_1 query6 sub2,rowkey:ly0007910703,count:1,cost time(ms):19
+2018-07-20 12:52:52,324|main||INFO|PressureTest|test2_1 query6 sub2,rowkey:ly0007910703,count:1,cost time(ms):20
+2018-07-20 12:53:52,347|main||INFO|PressureTest|test2_1 query6 sub3,rowkey:ly0007910703,count:1,cost time(ms):22
+2018-07-20 13:05:52,385|main||INFO|PressureTest|test2_1 query6 sub4,rowkey:ly0007910703,count:1,cost time(ms):31
+2018-07-20 13:05:52,446|main||INFO|PressureTest|test2_1 query6 sub1,rowkey:ly0010778607,count:1,cost time(ms):61
+2018-07-20 13:05:52,466|main||INFO|PressureTest|test2_1 query6 sub1,rowkey:ly0010778607,count:1,cost time(ms):20
+2018-07-20 13:05:52,485|main||INFO|PressureTest|test2_1 query6 sub1,rowkey:ly0010778607,count:1,cost time(ms):19
+2018-07-20 13:05:52,504|main||INFO|PressureTest|test2_1 query6 sub1,rowkey:ly0010778607,count:1,cost time(ms):19
+2018-07-20 13:06:02,526|main||INFO|PressureTest|test2_1 query6 sub2,rowkey:ly0010778607,count:1,cost time(ms):21
+2018-07-20 13:06:12,545|main||INFO|PressureTest|test2_1 query6 sub2,rowkey:ly0010778607,count:1,cost time(ms):19
+2018-07-20 13:06:22,564|main||INFO|PressureTest|test2_1 query6 sub2,rowkey:ly0010778607,count:1,cost time(ms):19
+2018-07-20 13:06:32,584|main||INFO|PressureTest|test2_1 query6 sub2,rowkey:ly0010778607,count:1,cost time(ms):19
+2018-07-20 13:07:32,604|main||INFO|PressureTest|test2_1 query6 sub3,rowkey:ly0010778607,count:1,cost time(ms):19
+2018-07-20 13:19:32,662|main||INFO|PressureTest|test2_1 query6 sub4,rowkey:ly0010778607,count:1,cost time(ms):30
+2018-07-20 13:19:32,691|main||INFO|PressureTest|test2_1 query6 sub1,rowkey:ly0012197692,count:1,cost time(ms):29
+2018-07-20 13:19:32,711|main||INFO|PressureTest|test2_1 query6 sub1,rowkey:ly0012197692,count:1,cost time(ms):20
+2018-07-20 13:19:32,730|main||INFO|PressureTest|test2_1 query6 sub1,rowkey:ly0012197692,count:1,cost time(ms):19
+2018-07-20 13:19:32,749|main||INFO|PressureTest|test2_1 query6 sub1,rowkey:ly0012197692,count:1,cost time(ms):18
+2018-07-20 13:19:42,769|main||INFO|PressureTest|test2_1 query6 sub2,rowkey:ly0012197692,count:1,cost time(ms):19
+2018-07-20 13:19:52,790|main||INFO|PressureTest|test2_1 query6 sub2,rowkey:ly0012197692,count:1,cost time(ms):19
+2018-07-20 13:20:02,811|main||INFO|PressureTest|test2_1 query6 sub2,rowkey:ly0012197692,count:1,cost time(ms):20
+2018-07-20 13:20:12,833|main||INFO|PressureTest|test2_1 query6 sub2,rowkey:ly0012197692,count:1,cost time(ms):20
+2018-07-20 13:21:12,855|main||INFO|PressureTest|test2_1 query6 sub3,rowkey:ly0012197692,count:1,cost time(ms):20
+2018-07-20 13:33:12,896|main||INFO|PressureTest|test2_1 query6 sub4,rowkey:ly0012197692,count:1,cost time(ms):32
+2018-07-20 13:33:12,946|main||INFO|PressureTest|test2_1 query6 sub1,rowkey:ly0013349715,count:1,cost time(ms):50
+2018-07-20 13:33:12,965|main||INFO|PressureTest|test2_1 query6 sub1,rowkey:ly0013349715,count:1,cost time(ms):19
+2018-07-20 13:33:12,985|main||INFO|PressureTest|test2_1 query6 sub1,rowkey:ly0013349715,count:1,cost time(ms):19
+2018-07-20 13:33:13,005|main||INFO|PressureTest|test2_1 query6 sub1,rowkey:ly0013349715,count:1,cost time(ms):20
+2018-07-20 13:33:23,025|main||INFO|PressureTest|test2_1 query6 sub2,rowkey:ly0013349715,count:1,cost time(ms):20
+2018-07-20 13:33:33,044|main||INFO|PressureTest|test2_1 query6 sub2,rowkey:ly0013349715,count:1,cost time(ms):19
+2018-07-20 13:33:43,065|main||INFO|PressureTest|test2_1 query6 sub2,rowkey:ly0013349715,count:1,cost time(ms):20
+2018-07-20 13:33:53,084|main||INFO|PressureTest|test2_1 query6 sub2,rowkey:ly0013349715,count:1,cost time(ms):19
+2018-07-20 13:34:53,105|main||INFO|PressureTest|test2_1 query6 sub3,rowkey:ly0013349715,count:1,cost time(ms):19
+2018-07-20 13:46:53,146|main||INFO|PressureTest|test2_1 query6 sub4,rowkey:ly0013349715,count:1,cost time(ms):31
+2018-07-23 11:45:09,439|main||INFO|PressureTest|test2_2 query1/query2/query3/query4,scan随机访问性能
+2018-07-23 11:45:09,960|main||INFO|PressureTest|test2_2 query1,count:1,cost time(ms):518
+2018-07-23 11:45:09,999|main||INFO|PressureTest|test2_2 query1,count:0,cost time(ms):39
+2018-07-23 11:45:10,067|main||INFO|PressureTest|test2_2 query1,count:1,cost time(ms):68
+2018-07-23 11:45:10,133|main||INFO|PressureTest|test2_2 query1,count:1,cost time(ms):66
+2018-07-23 11:45:10,195|main||INFO|PressureTest|test2_2 query1,count:1,cost time(ms):61
+2018-07-23 11:45:10,264|main||INFO|PressureTest|test2_2 query1,count:1,cost time(ms):69
+2018-07-23 11:45:10,342|main||INFO|PressureTest|test2_2 query1,count:1,cost time(ms):78
+2018-07-23 11:45:10,374|main||INFO|PressureTest|test2_2 query1,count:1,cost time(ms):31
+2018-07-23 11:45:10,439|main||INFO|PressureTest|test2_2 query1,count:1,cost time(ms):65
+2018-07-23 11:45:10,451|main||INFO|PressureTest|test2_2 query1,count:0,cost time(ms):12
+2018-07-23 11:45:10,596|main||INFO|PressureTest|test2_2 query2,count:10,cost time(ms):145
+2018-07-23 11:45:10,771|main||INFO|PressureTest|test2_2 query2,count:10,cost time(ms):175
+2018-07-23 11:45:10,909|main||INFO|PressureTest|test2_2 query2,count:10,cost time(ms):138
+2018-07-23 11:45:10,921|main||INFO|PressureTest|test2_2 query2,count:0,cost time(ms):12
+2018-07-23 11:45:11,103|main||INFO|PressureTest|test2_2 query2,count:10,cost time(ms):182
+2018-07-23 11:45:11,580|main||INFO|PressureTest|test2_2 query2,count:10,cost time(ms):476
+2018-07-23 11:45:11,726|main||INFO|PressureTest|test2_2 query2,count:10,cost time(ms):146
+2018-07-23 11:45:11,868|main||INFO|PressureTest|test2_2 query2,count:10,cost time(ms):142
+2018-07-23 11:45:12,052|main||INFO|PressureTest|test2_2 query2,count:10,cost time(ms):183
+2018-07-23 11:45:12,196|main||INFO|PressureTest|test2_2 query2,count:10,cost time(ms):144
+2018-07-23 11:45:13,365|main||INFO|PressureTest|test2_2 query3,count:100,cost time(ms):1168
+2018-07-23 11:45:14,409|main||INFO|PressureTest|test2_2 query3,count:100,cost time(ms):1044
+2018-07-23 11:45:15,491|main||INFO|PressureTest|test2_2 query3,count:100,cost time(ms):1082
+2018-07-23 11:45:16,571|main||INFO|PressureTest|test2_2 query3,count:100,cost time(ms):1080
+2018-07-23 11:45:16,582|main||INFO|PressureTest|test2_2 query3,count:0,cost time(ms):11
+2018-07-23 11:45:18,692|main||INFO|PressureTest|test2_2 query3,count:100,cost time(ms):2110
+2018-07-23 11:45:19,767|main||INFO|PressureTest|test2_2 query3,count:100,cost time(ms):1075
+2018-07-23 11:45:20,804|main||INFO|PressureTest|test2_2 query3,count:100,cost time(ms):1037
+2018-07-23 11:45:21,886|main||INFO|PressureTest|test2_2 query3,count:100,cost time(ms):1082
+2018-07-23 11:45:21,919|main||INFO|PressureTest|test2_2 query3,count:0,cost time(ms):33
+2018-07-23 11:45:32,558|main||INFO|PressureTest|test2_2 query4,count:1000,cost time(ms):10639
+2018-07-23 11:45:42,931|main||INFO|PressureTest|test2_2 query4,count:1000,cost time(ms):10373
+2018-07-23 11:45:42,944|main||INFO|PressureTest|test2_2 query4,count:0,cost time(ms):13
+2018-07-23 11:45:42,956|main||INFO|PressureTest|test2_2 query4,count:0,cost time(ms):11
+2018-07-23 11:45:53,374|main||INFO|PressureTest|test2_2 query4,count:1000,cost time(ms):10418
+2018-07-23 11:45:53,386|main||INFO|PressureTest|test2_2 query4,count:0,cost time(ms):12
+2018-07-23 11:46:04,025|main||INFO|PressureTest|test2_2 query4,count:1000,cost time(ms):10639
+2018-07-23 11:46:04,036|main||INFO|PressureTest|test2_2 query4,count:0,cost time(ms):11
+2018-07-23 11:46:15,317|main||INFO|PressureTest|test2_2 query4,count:1000,cost time(ms):11281
+2018-07-23 11:46:25,735|main||INFO|PressureTest|test2_2 query4,count:1000,cost time(ms):10418
+2018-07-23 16:56:32,804|main||INFO|PressureTest2Hive|test1_2 query1,随机访问性能测试
+2018-07-23 16:56:33,355|main||INFO|PressureTest2Hive|test1_2 query1,rowKey:ly0015027378,count:1,cost time(ms):547
+2018-07-23 16:56:33,774|main||INFO|PressureTest2Hive|test1_2 query1,rowKey:ly0014043689,count:1,cost time(ms):419
+2018-07-23 16:56:34,174|main||INFO|PressureTest2Hive|test1_2 query1,rowKey:ly0008411729,count:1,cost time(ms):400
+2018-07-23 16:56:34,648|main||INFO|PressureTest2Hive|test1_2 query1,rowKey:ly0003440073,count:1,cost time(ms):474
+2018-07-23 16:56:35,022|main||INFO|PressureTest2Hive|test1_2 query1,rowKey:ly0024612114,count:0,cost time(ms):373
+2018-07-23 16:56:35,436|main||INFO|PressureTest2Hive|test1_2 query1,rowKey:ly0008523492,count:1,cost time(ms):413
+2018-07-23 16:56:35,824|main||INFO|PressureTest2Hive|test1_2 query1,rowKey:ly0023468384,count:0,cost time(ms):388
+2018-07-23 16:56:36,236|main||INFO|PressureTest2Hive|test1_2 query1,rowKey:ly0011338457,count:1,cost time(ms):411
+2018-07-23 16:56:36,695|main||INFO|PressureTest2Hive|test1_2 query1,rowKey:ly0024424854,count:0,cost time(ms):459
+2018-07-23 16:56:37,087|main||INFO|PressureTest2Hive|test1_2 query1,rowKey:ly0004607999,count:1,cost time(ms):392
+2018-07-23 16:56:37,087|main||INFO|PressureTest2Hive|test1_2 query2,区间访问性能测试
+2018-07-23 16:56:37,583|main||INFO|PressureTest2Hive|test1_2 query2,rowKey1:ly001277259,rowKey2:ly001277259z,count:10,cost time(ms):496
+2018-07-23 16:56:37,945|main||INFO|PressureTest2Hive|test1_2 query2,rowKey1:ly002422773,rowKey2:ly002422773z,count:0,cost time(ms):362
+2018-07-23 16:56:38,360|main||INFO|PressureTest2Hive|test1_2 query2,rowKey1:ly001877847,rowKey2:ly001877847z,count:10,cost time(ms):415
+2018-07-23 16:56:38,753|main||INFO|PressureTest2Hive|test1_2 query2,rowKey1:ly000676281,rowKey2:ly000676281z,count:10,cost time(ms):393
+2018-07-23 16:56:39,167|main||INFO|PressureTest2Hive|test1_2 query2,rowKey1:ly000344706,rowKey2:ly000344706z,count:10,cost time(ms):414
+2018-07-23 16:56:39,565|main||INFO|PressureTest2Hive|test1_2 query2,rowKey1:ly001086494,rowKey2:ly001086494z,count:10,cost time(ms):398
+2018-07-23 16:56:40,080|main||INFO|PressureTest2Hive|test1_2 query2,rowKey1:ly001805153,rowKey2:ly001805153z,count:10,cost time(ms):515
+2018-07-23 16:56:40,489|main||INFO|PressureTest2Hive|test1_2 query2,rowKey1:ly001467280,rowKey2:ly001467280z,count:10,cost time(ms):409
+2018-07-23 16:56:40,904|main||INFO|PressureTest2Hive|test1_2 query2,rowKey1:ly002857961,rowKey2:ly002857961z,count:0,cost time(ms):415
+2018-07-23 16:56:41,317|main||INFO|PressureTest2Hive|test1_2 query2,rowKey1:ly000889232,rowKey2:ly000889232z,count:10,cost time(ms):412
+2018-07-23 18:06:13,615|main||INFO|PressureTest2Hive|test2_2,抽数性能分析
+2018-07-23 18:17:13,271|main||INFO|PressureTest2Hive|test2_2 execute1,sql:insert overwrite table hive_cust22 select t.* from hive_cust2 t where t.key>='ly0000000000' and t.key<'ly0010000000',cost time(ms):659656
+2018-07-23 18:22:42,342|main||INFO|PressureTest2Hive|test2_2,抽数性能分析
+2018-07-23 18:35:15,026|main||INFO|PressureTest2Hive|test2_2 execute2,sql:insert into table hive_cust22 select t.* from hive_cust2 t where t.key>='ly0010000000' and t.key<'ly0020000000',cost time(ms):752682
+2018-07-23 19:30:44,428|main||INFO|PressureTest2Hive|test2_2,创建索引
+2018-07-23 19:30:48,628|main||INFO|PressureTest2Hive|test2_2 execute3,sql:create index hive_cust22_index on table hive_cust22(key) as 'org.apache.hadoop.hive.ql.index.compact.CompactIndexHandler' with deferred rebuild in table user_index_table,cost time(ms):4199
+2018-07-23 19:09:58,010|main||INFO|PressureTest2Hive|test2_3 query1,随机访问性能测试
+2018-07-23 19:10:26,340|main||INFO|PressureTest2Hive|test2_3 query1,rowKey:ly0020017695,count:0,cost time(ms):28327
+2018-07-23 19:10:56,544|main||INFO|PressureTest2Hive|test2_3 query1,rowKey:ly0019309865,count:1,cost time(ms):30204
+2018-07-23 19:11:24,736|main||INFO|PressureTest2Hive|test2_3 query1,rowKey:ly0010741423,count:1,cost time(ms):28192
+2018-07-23 19:11:50,939|main||INFO|PressureTest2Hive|test2_3 query1,rowKey:ly0014517048,count:1,cost time(ms):26203
